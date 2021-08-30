@@ -30,13 +30,18 @@ function router(request, response) {
 
   switch (request.url) {
     case '/hola':
-      response.write('<h1>Hola, ¿Qué tal?</h1>');
+      let saludo = hola();
+      response.write(saludo);
       response.end();
       break;
     default:
       response.write('<h1>Error 404: No sé qué es lo que quieres</h1>');
       response.end();
   }
+}
+
+function hola() {
+  return '<h1>Hola, ¿Qué tal?</h1>';
 }
 
 console.log('Escuchando http en el puerto 3000');
